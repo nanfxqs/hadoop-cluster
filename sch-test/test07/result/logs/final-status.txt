@@ -1,0 +1,56 @@
+采集时间：2026-10-15T10:29:56.124406
+节点：hadoop01 (192.168.122.11)
+$ for h in hadoop01 hadoop02 hadoop03; do echo "$h"; ssh "$h" "source /etc/profile.d/java.sh; jps; free -m"; done; export PATH=$HOME/opt/kafka_2.12-3.7.0/bin:$PATH; export KAFKA_HEAP_OPTS="-Xms128m -Xmx256m"; kafka-topics.sh --bootstrap-server hadoop01:9092,hadoop02:9092,hadoop03:9092 --describe --topic test07_ha
+
+hadoop01
+3985 DataNode
+1826 QuorumPeerMain
+6722 HRegionServer
+12279 HMaster
+5240 JobHistoryServer
+9928 Kafka
+3161 JournalNode
+4969 ResourceManager
+5097 NodeManager
+4330 DFSZKFailoverController
+24251 Jps
+8143 NameNode
+              total        used        free      shared  buff/cache   available
+Mem:           3665        2577         285          14         803         857
+Swap:          4051           2        4049
+hadoop02
+6448 Jps
+5841 Kafka
+3074 NodeManager
+3397 NameNode
+3781 HMaster
+3654 HRegionServer
+2359 JournalNode
+2808 DFSZKFailoverController
+1737 QuorumPeerMain
+5194 ResourceManager
+2667 DataNode
+              total        used        free      shared  buff/cache   available
+Mem:           3665        2375         124          15        1166        1057
+Swap:          4051           0        4051
+hadoop03
+2820 DFSZKFailoverController
+3076 NodeManager
+3750 HMaster
+2359 JournalNode
+2679 DataNode
+3623 HRegionServer
+4999 Kafka
+4200 ResourceManager
+5849 Jps
+4893 NameNode
+1742 QuorumPeerMain
+              total        used        free      shared  buff/cache   available
+Mem:           3665        2305         120          16        1239        1126
+Swap:          4051           0        4051
+Topic: test07_ha	TopicId: BjNF3mp_TJakBT9lYaMykg	PartitionCount: 3	ReplicationFactor: 3	Configs: min.insync.replicas=2
+	Topic: test07_ha	Partition: 0	Leader: 1	Replicas: 2,1,3	Isr: 1,3,2
+	Topic: test07_ha	Partition: 1	Leader: 3	Replicas: 3,2,1	Isr: 3,1,2
+	Topic: test07_ha	Partition: 2	Leader: 1	Replicas: 1,3,2	Isr: 1,3,2
+
+退出码：0

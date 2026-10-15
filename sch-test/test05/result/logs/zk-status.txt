@@ -1,0 +1,21 @@
+采集时间：2026-10-15T10:20:10.875157
+节点：hadoop01 (192.168.122.11)
+$ for h in hadoop01 hadoop02 hadoop03; do echo "$h"; ssh "$h" "JAVA_HOME=/usr/local/jdk1.8.0_212 /home/hadoop/opt/apache-zookeeper-3.5.8-bin/bin/zkServer.sh status"; done
+
+hadoop01
+Client port found: 2181. Client address: localhost.
+Mode: follower
+hadoop02
+Client port found: 2181. Client address: localhost.
+Mode: leader
+hadoop03
+Client port found: 2181. Client address: localhost.
+Mode: follower
+ZooKeeper JMX enabled by default
+Using config: /home/hadoop/opt/apache-zookeeper-3.5.8-bin/bin/../conf/zoo.cfg
+ZooKeeper JMX enabled by default
+Using config: /home/hadoop/opt/apache-zookeeper-3.5.8-bin/bin/../conf/zoo.cfg
+ZooKeeper JMX enabled by default
+Using config: /home/hadoop/opt/apache-zookeeper-3.5.8-bin/bin/../conf/zoo.cfg
+
+退出码：0

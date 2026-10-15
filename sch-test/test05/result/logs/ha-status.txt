@@ -1,0 +1,30 @@
+采集时间：2026-10-15T10:22:00.570765
+节点：hadoop01 (192.168.122.11)
+$ for id in nn1 nn2 nn3; do echo "$id"; hdfs haadmin -getServiceState "$id"; done; for id in rm1 rm2 rm3; do echo "$id"; yarn rmadmin -getServiceState "$id"; done; hdfs dfs -ls /; hdfs dfsadmin -report | grep -E "Live datanodes|Name:|Hostname:"
+
+nn1
+active
+nn2
+standby
+nn3
+standby
+rm1
+standby
+rm2
+standby
+rm3
+active
+Found 4 items
+drwxr-xr-x   - hadoop supergroup          0 2026-09-24 08:00 /jinguo
+drwxr-xr-x   - hadoop supergroup          0 2026-10-08 02:43 /test04
+drwxrwx---   - hadoop supergroup          0 2026-09-16 06:24 /tmp
+drwxr-xr-x   - hadoop supergroup          0 2026-09-16 06:25 /wordcount
+Live datanodes (3):
+Name: 192.168.122.11:9866 (hadoop01)
+Hostname: hadoop01
+Name: 192.168.122.12:9866 (hadoop02)
+Hostname: hadoop02
+Name: 192.168.122.13:9866 (hadoop03)
+Hostname: hadoop03
+
+退出码：0

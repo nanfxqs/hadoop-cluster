@@ -1,0 +1,59 @@
+采集时间：2026-10-15T10:24:41.776937
+节点：hadoop01 (192.168.122.11)
+$ JAVA_HOME=/usr/local/jdk1.8.0_212 ~/opt/hbase-2.4.11/bin/hbase shell -n ~/test06-shell.hbase
+
+hbase:001:0> status 'detailed'
+version 2.4.11
+0 regionsInTransition
+active master:  hadoop01:16000 1792002149782
+2 backup masters
+    hadoop02:16000 1792002153998
+    hadoop03:16000 1792002153466
+master coprocessors: []
+3 live servers
+    hadoop01:16020 1792002152471
+        requestsPerSecond=0.0, numberOfOnlineRegions=0, usedHeapMB=17, maxHeapMB=371, numberOfStores=0, numberOfStorefiles=0, storefileUncompressedSizeMB=0, storefileSizeMB=0, memstoreSizeMB=0, storefileIndexSizeKB=0, readRequestsCount=0, filteredReadRequestsCount=0, writeRequestsCount=0, rootIndexSizeKB=0, totalStaticIndexSizeKB=0, totalStaticBloomSizeKB=0, totalCompactingKVs=0, currentCompactedKVs=0, compactionProgressPct=NaN, coprocessors=[]
+    hadoop02:16020 1792002150905
+        requestsPerSecond=0.0, numberOfOnlineRegions=2, usedHeapMB=31, maxHeapMB=371, numberOfStores=2, numberOfStorefiles=0, storefileUncompressedSizeMB=0, storefileSizeMB=0, memstoreSizeMB=2, storefileIndexSizeKB=0, readRequestsCount=10, filteredReadRequestsCount=2, writeRequestsCount=5, rootIndexSizeKB=0, totalStaticIndexSizeKB=0, totalStaticBloomSizeKB=0, totalCompactingKVs=0, currentCompactedKVs=0, compactionProgressPct=NaN, coprocessors=[]
+        "hbase:namespace,,1792002237650.6a145fb9e0cf71d96d44df2b1e6a70a1."
+            numberOfStores=1, numberOfStorefiles=0, storeRefCount=0, storefileUncompressedSizeMB=0, lastMajorCompactionTimestamp=0, storefileSizeMB=0, memstoreSizeMB=1, readRequestsCount=6, writeRequestsCount=2, rootIndexSizeKB=0, totalStaticIndexSizeKB=0, totalStaticBloomSizeKB=0, totalCompactingKVs=0, currentCompactedKVs=0, compactionProgressPct=NaN, completeSequenceId=-1, dataLocality=0.0
+        "test06_api,,1792002249130.87b620a349c60246e92befab6158e12d."
+            numberOfStores=1, numberOfStorefiles=0, storeRefCount=0, storefileUncompressedSizeMB=0, lastMajorCompactionTimestamp=0, storefileSizeMB=0, memstoreSizeMB=1, readRequestsCount=4, writeRequestsCount=3, rootIndexSizeKB=0, totalStaticIndexSizeKB=0, totalStaticBloomSizeKB=0, totalCompactingKVs=0, currentCompactedKVs=0, compactionProgressPct=NaN, completeSequenceId=-1, dataLocality=0.0
+    hadoop03:16020 1792002150722
+        requestsPerSecond=0.0, numberOfOnlineRegions=1, usedHeapMB=28, maxHeapMB=371, numberOfStores=3, numberOfStorefiles=0, storefileUncompressedSizeMB=0, storefileSizeMB=0, memstoreSizeMB=1, storefileIndexSizeKB=0, readRequestsCount=9, filteredReadRequestsCount=0, writeRequestsCount=10, rootIndexSizeKB=0, totalStaticIndexSizeKB=0, totalStaticBloomSizeKB=0, totalCompactingKVs=0, currentCompactedKVs=0, compactionProgressPct=NaN, coprocessors=[MultiRowMutationEndpoint]
+        "hbase:meta,,1"
+            numberOfStores=3, numberOfStorefiles=0, storeRefCount=0, storefileUncompressedSizeMB=0, lastMajorCompactionTimestamp=0, storefileSizeMB=0, memstoreSizeMB=1, readRequestsCount=9, writeRequestsCount=10, rootIndexSizeKB=0, totalStaticIndexSizeKB=0, totalStaticBloomSizeKB=0, totalCompactingKVs=0, currentCompactedKVs=0, compactionProgressPct=NaN, completeSequenceId=-1, dataLocality=0.0
+0 dead servers
+Took 0.8099 seconds
+=> #<Java::JavaUtil::Collections::UnmodifiableRandomAccessList:0x211a9647>
+hbase:002:0> create 'test06_shell', 'C1'
+Created table test06_shell
+Took 4.3927 seconds
+=> Hbase::Table - test06_shell
+hbase:003:0> put 'test06_shell', '100001', 'C1:NAME', 'zhangsan'
+Took 0.3744 seconds
+hbase:004:0> put 'test06_shell', '100001', 'C1:NUM_USAGE', '25'
+Took 0.0391 seconds
+hbase:005:0> get 'test06_shell', '100001'
+COLUMN  CELL
+ C1:NAME timestamp=2026-10-15T02:24:39.614, value=zhangsan
+ C1:NUM_USAGE timestamp=2026-10-15T02:24:39.727, value=25
+1 row(s)
+Took 0.1144 seconds
+hbase:006:0> scan 'test06_shell'
+ROW  COLUMN+CELL
+ 100001 column=C1:NAME, timestamp=2026-10-15T02:24:39.614, value=zhangsan
+ 100001 column=C1:NUM_USAGE, timestamp=2026-10-15T02:24:39.727, value=25
+1 row(s)
+Took 0.0397 seconds
+hbase:007:0> delete 'test06_shell', '100001', 'C1:NUM_USAGE'
+Took 0.0275 seconds
+hbase:008:0> get 'test06_shell', '100001'
+COLUMN  CELL
+ C1:NAME timestamp=2026-10-15T02:24:39.614, value=zhangsan
+1 row(s)
+Took 0.0363 seconds
+hbase:009:0> exit
+2026-10-15 02:24:29,456 WARN  [main] util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+退出码：0

@@ -1,0 +1,27 @@
+采集时间：2026-10-15T10:25:45.747095
+节点：hadoop01 (192.168.122.11)
+$ for id in nn1 nn2 nn3; do echo "$id"; hdfs haadmin -getServiceState "$id"; done; for id in rm1 rm2 rm3; do echo "$id"; yarn rmadmin -getServiceState "$id"; done; hdfs dfs -cat /test04/official/output/part-r-00000; hdfs dfsadmin -report | grep "Live datanodes"
+
+nn1
+standby
+nn2
+active
+nn3
+standby
+rm1
+active
+rm2
+standby
+rm3
+standby
+Hello	2
+This	1
+a	1
+again	1
+is	1
+test	1
+world	1
+Live datanodes (3):
+2026-10-15 02:25:41,332 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+
+退出码：0

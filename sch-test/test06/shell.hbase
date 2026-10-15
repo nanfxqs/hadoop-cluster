@@ -1,0 +1,9 @@
+status 'detailed'
+create 'test06_shell', 'C1'
+put 'test06_shell', '100001', 'C1:NAME', 'zhangsan'
+put 'test06_shell', '100001', 'C1:NUM_USAGE', '25'
+get 'test06_shell', '100001'
+scan 'test06_shell'
+delete 'test06_shell', '100001', 'C1:NUM_USAGE'
+get 'test06_shell', '100001'
+exit

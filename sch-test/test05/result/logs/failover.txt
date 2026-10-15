@@ -1,0 +1,55 @@
+采集时间：2026-10-15T10:24:52.830621
+节点：hadoop01 (192.168.122.11)
+$ bash ~/test05-failover.sh
+
+BEFORE nn1 standby
+BEFORE nn2 standby
+BEFORE nn3 active
+STOP hadoop03 namenode
+AFTER nn2 active; elapsed=3 seconds (including stop/query)
+HA data survives failover
+BEFORE rm1 standby
+BEFORE rm2 active
+BEFORE rm3 standby
+STOP hadoop02 resourcemanager
+AFTER rm1 active; elapsed=2 seconds (including stop/query)
+HA data survives failover
+2026-10-15 02:24:22,284 INFO retry.RetryInvocationHandler: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.StandbyException): Operation category READ is not supported in state standby. Visit https://s.apache.org/sbnn-error
+	at org.apache.hadoop.hdfs.server.namenode.ha.StandbyState.checkOperation(StandbyState.java:98)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode$NameNodeHAContext.checkOperation(NameNode.java:2017)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkOperation(FSNamesystem.java:1441)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.getFileInfo(FSNamesystem.java:3125)
+	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.getFileInfo(NameNodeRpcServer.java:1173)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.getFileInfo(ClientNamenodeProtocolServerSideTranslatorPB.java:973)
+	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:527)
+	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:1036)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:1000)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:928)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1729)
+	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2916)
+, while invoking ClientNamenodeProtocolTranslatorPB.getFileInfo over hadoop02/192.168.122.12:8020 after 1 failover attempts. Trying to failover after sleeping for 774ms.
+2026-10-15 02:24:26,604 INFO retry.RetryInvocationHandler: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.StandbyException): Operation category READ is not supported in state standby. Visit https://s.apache.org/sbnn-error
+	at org.apache.hadoop.hdfs.server.namenode.ha.StandbyState.checkOperation(StandbyState.java:98)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode$NameNodeHAContext.checkOperation(NameNode.java:2017)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkOperation(FSNamesystem.java:1441)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.getFileInfo(FSNamesystem.java:3125)
+	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.getFileInfo(NameNodeRpcServer.java:1173)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.getFileInfo(ClientNamenodeProtocolServerSideTranslatorPB.java:973)
+	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:527)
+	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:1036)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:1000)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:928)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1729)
+	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2916)
+, while invoking ClientNamenodeProtocolTranslatorPB.getFileInfo over hadoop02/192.168.122.12:8020 after 1 failover attempts. Trying to failover after sleeping for 1381ms.
+2026-10-15 02:24:28,357 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2026-10-15 02:24:38,494 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2026-10-15 02:24:48,973 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+
+退出码：0

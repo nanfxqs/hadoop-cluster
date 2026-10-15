@@ -1,0 +1,39 @@
+采集时间：2026-10-15T10:24:56.971436
+节点：hadoop01 (192.168.122.11)
+$ export HBASE_HOME=$HOME/opt/hbase-2.4.11; CP="$($HBASE_HOME/bin/hbase classpath)"; cd ~; javac -encoding UTF-8 -cp "$CP" HBaseLab.java && java -cp ".:$CP" HBaseLab
+
+tableExists=true
+GET 100001
+row=100001, NAME=张三, RECORD_DATE=2024-04-25, NUM_USAGE=25
+SCAN 2024-04-01 .. 2024-06-30
+row=100001, NAME=张三, RECORD_DATE=2024-04-25, NUM_USAGE=25
+AFTER DELETE 100001
+EMPTY
+2026-10-15 02:24:53,851 WARN  [main] util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2026-10-15 02:24:54,256 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:zookeeper.version=3.5.7-f0fdd52973d373ffd9c86b81d99842dc2c7f660e, built on 02/10/2020 11:30 GMT
+2026-10-15 02:24:54,256 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:host.name=hadoop01
+2026-10-15 02:24:54,256 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:java.version=1.8.0_212
+2026-10-15 02:24:54,256 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:java.vendor=Oracle Corporation
+2026-10-15 02:24:54,256 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:java.home=/usr/local/jdk1.8.0_212/jre
+2026-10-15 02:24:54,256 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:java.class.path=.:/home/hadoop/opt/hbase-2.4.11/conf:/usr/local/jdk1.8.0_212/lib/tools.jar:/home/hadoop/opt/hbase-2.4.11:/home/hadoop/opt/hbase-2.4.11/lib/shaded-clients/hbase-shaded-client-2.4.11.jar:/home/hadoop/opt/hbase-2.4.11/lib/client-facing-thirdparty/audience-annotations-0.5.0.jar:/home/hadoop/opt/hbase-2.4.11/lib/client-facing-thirdparty/commons-logging-1.2.jar:/home/hadoop/opt/hbase-2.4.11/lib/client-facing-thirdparty/htrace-core4-4.2.0-incubating.jar:/home/hadoop/opt/hbase-2.4.11/lib/client-facing-thirdparty/reload4j-1.2.19.jar:/home/hadoop/opt/hbase-2.4.11/lib/client-facing-thirdparty/slf4j-api-1.7.33.jar:/home/hadoop/opt/hbase-2.4.11/lib/client-facing-thirdparty/slf4j-reload4j-1.7.33.jar
+2026-10-15 02:24:54,256 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:java.library.path=/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+2026-10-15 02:24:54,256 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:java.io.tmpdir=/tmp
+2026-10-15 02:24:54,256 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:java.compiler=<NA>
+2026-10-15 02:24:54,256 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:os.name=Linux
+2026-10-15 02:24:54,256 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:os.arch=amd64
+2026-10-15 02:24:54,256 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:os.version=4.18.0-553.el8_10.x86_64
+2026-10-15 02:24:54,256 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:user.name=hadoop
+2026-10-15 02:24:54,256 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:user.home=/home/hadoop
+2026-10-15 02:24:54,256 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:user.dir=/home/hadoop
+2026-10-15 02:24:54,256 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:os.memory.free=41MB
+2026-10-15 02:24:54,256 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:os.memory.max=816MB
+2026-10-15 02:24:54,256 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:os.memory.total=56MB
+2026-10-15 02:24:54,260 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Initiating client connection, connectString=hadoop01:2181,hadoop02:2181,hadoop03:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1159728035@707380c9
+2026-10-15 02:24:54,264 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] common.X509Util: Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2026-10-15 02:24:54,269 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 4194304 Bytes
+2026-10-15 02:24:54,274 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=
+2026-10-15 02:24:54,290 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f-SendThread(hadoop02:2181)] zookeeper.ClientCnxn: Opening socket connection to server hadoop02/192.168.122.12:2181. Will not attempt to authenticate using SASL (unknown error)
+2026-10-15 02:24:54,296 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f-SendThread(hadoop02:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /192.168.122.11:57292, server: hadoop02/192.168.122.12:2181
+2026-10-15 02:24:54,306 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f-SendThread(hadoop02:2181)] zookeeper.ClientCnxn: Session establishment complete on server hadoop02/192.168.122.12:2181, sessionid = 0x2000001a5b50019, negotiated timeout = 40000
+
+退出码：0

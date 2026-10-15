@@ -1,0 +1,55 @@
+采集时间：2026-10-15T10:25:26.052958
+节点：hadoop01 (192.168.122.11)
+$ bash ~/test06-failover.sh
+
+BEFORE
+hbase:001:0> status 'simple'
+active master:  hadoop01:16000 1792002149782
+2 backup masters
+    hadoop02:16000 1792002153998
+    hadoop03:16000 1792002153466
+3 live servers
+    hadoop01:16020 1792002152471
+        requestsPerSecond=0.0, numberOfOnlineRegions=0, usedHeapMB=18, maxHeapMB=371, numberOfStores=0, numberOfStorefiles=0, storefileUncompressedSizeMB=0, storefileSizeMB=0, memstoreSizeMB=0, storefileIndexSizeKB=0, readRequestsCount=0, filteredReadRequestsCount=0, writeRequestsCount=0, rootIndexSizeKB=0, totalStaticIndexSizeKB=0, totalStaticBloomSizeKB=0, totalCompactingKVs=0, currentCompactedKVs=0, compactionProgressPct=NaN, coprocessors=[]
+    hadoop02:16020 1792002150905
+        requestsPerSecond=1.0, numberOfOnlineRegions=2, usedHeapMB=32, maxHeapMB=371, numberOfStores=2, numberOfStorefiles=0, storefileUncompressedSizeMB=0, storefileSizeMB=0, memstoreSizeMB=2, storefileIndexSizeKB=0, readRequestsCount=14, filteredReadRequestsCount=4, writeRequestsCount=8, rootIndexSizeKB=0, totalStaticIndexSizeKB=0, totalStaticBloomSizeKB=0, totalCompactingKVs=0, currentCompactedKVs=0, compactionProgressPct=NaN, coprocessors=[]
+    hadoop03:16020 1792002150722
+        requestsPerSecond=0.0, numberOfOnlineRegions=2, usedHeapMB=35, maxHeapMB=371, numberOfStores=4, numberOfStorefiles=0, storefileUncompressedSizeMB=0, storefileSizeMB=0, memstoreSizeMB=2, storefileIndexSizeKB=0, readRequestsCount=18, filteredReadRequestsCount=0, writeRequestsCount=18, rootIndexSizeKB=0, totalStaticIndexSizeKB=0, totalStaticBloomSizeKB=0, totalCompactingKVs=0, currentCompactedKVs=0, compactionProgressPct=NaN, coprocessors=[MultiRowMutationEndpoint]
+0 dead servers
+Aggregate load: 1, regions: 4
+Took 0.6199 seconds
+hbase:002:0> get 'test06_shell', '100001'
+COLUMN  CELL
+ C1:NAME timestamp=2026-10-15T02:24:39.614, value=zhangsan
+1 row(s)
+Took 0.1806 seconds
+hbase:003:0> exit
+STOP-hadoop01-master
+running master, logging to /home/hadoop/opt/hbase-2.4.11/logs/hbase-hadoop-master-hadoop01.out
+stopping master.
+AFTER
+hbase:001:0> status 'simple'
+active master:  hadoop02:16000 1792002153998
+1 backup masters
+    hadoop03:16000 1792002153466
+3 live servers
+    hadoop01:16020 1792002152471
+        requestsPerSecond=0.0, numberOfOnlineRegions=0, usedHeapMB=20, maxHeapMB=371, numberOfStores=0, numberOfStorefiles=0, storefileUncompressedSizeMB=0, storefileSizeMB=0, memstoreSizeMB=0, storefileIndexSizeKB=0, readRequestsCount=0, filteredReadRequestsCount=0, writeRequestsCount=0, rootIndexSizeKB=0, totalStaticIndexSizeKB=0, totalStaticBloomSizeKB=0, totalCompactingKVs=0, currentCompactedKVs=0, compactionProgressPct=NaN, coprocessors=[]
+    hadoop02:16020 1792002150905
+        requestsPerSecond=0.0, numberOfOnlineRegions=2, usedHeapMB=35, maxHeapMB=371, numberOfStores=2, numberOfStorefiles=0, storefileUncompressedSizeMB=0, storefileSizeMB=0, memstoreSizeMB=2, storefileIndexSizeKB=0, readRequestsCount=18, filteredReadRequestsCount=4, writeRequestsCount=8, rootIndexSizeKB=0, totalStaticIndexSizeKB=0, totalStaticBloomSizeKB=0, totalCompactingKVs=0, currentCompactedKVs=0, compactionProgressPct=NaN, coprocessors=[]
+    hadoop03:16020 1792002150722
+        requestsPerSecond=0.0, numberOfOnlineRegions=2, usedHeapMB=38, maxHeapMB=371, numberOfStores=4, numberOfStorefiles=0, storefileUncompressedSizeMB=0, storefileSizeMB=0, memstoreSizeMB=2, storefileIndexSizeKB=0, readRequestsCount=33, filteredReadRequestsCount=0, writeRequestsCount=18, rootIndexSizeKB=0, totalStaticIndexSizeKB=0, totalStaticBloomSizeKB=0, totalCompactingKVs=0, currentCompactedKVs=0, compactionProgressPct=NaN, coprocessors=[MultiRowMutationEndpoint]
+0 dead servers
+Aggregate load: 0, regions: 4
+Took 0.7113 seconds
+hbase:002:0> get 'test06_shell', '100001'
+COLUMN  CELL
+ C1:NAME timestamp=2026-10-15T02:24:39.614, value=zhangsan
+1 row(s)
+Took 0.3038 seconds
+hbase:003:0> exit
+running master, logging to /home/hadoop/opt/hbase-2.4.11/logs/hbase-hadoop-master-hadoop01.out
+2026-10-15 02:24:59,269 WARN  [main] util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2026-10-15 02:25:18,612 WARN  [main] util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+退出码：0

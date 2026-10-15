@@ -1,0 +1,24 @@
+采集时间：2026-10-15T10:25:57.709871
+节点：hadoop01 (192.168.122.11)
+$ printf "status 'simple'\nexit\n" | JAVA_HOME=/usr/local/jdk1.8.0_212 ~/opt/hbase-2.4.11/bin/hbase shell -n
+
+hbase:001:0> status 'simple'
+active master:  hadoop02:16000 1792002153998
+2 backup masters
+    hadoop01:16000 1792002325002
+    hadoop03:16000 1792002153466
+3 live servers
+    hadoop01:16020 1792002152471
+        requestsPerSecond=0.0, numberOfOnlineRegions=0, usedHeapMB=20, maxHeapMB=371, numberOfStores=0, numberOfStorefiles=0, storefileUncompressedSizeMB=0, storefileSizeMB=0, memstoreSizeMB=0, storefileIndexSizeKB=0, readRequestsCount=0, filteredReadRequestsCount=0, writeRequestsCount=0, rootIndexSizeKB=0, totalStaticIndexSizeKB=0, totalStaticBloomSizeKB=0, totalCompactingKVs=0, currentCompactedKVs=0, compactionProgressPct=NaN, coprocessors=[]
+    hadoop02:16020 1792002150905
+        requestsPerSecond=0.0, numberOfOnlineRegions=1, usedHeapMB=28, maxHeapMB=371, numberOfStores=1, numberOfStorefiles=0, storefileUncompressedSizeMB=0, storefileSizeMB=0, memstoreSizeMB=1, storefileIndexSizeKB=0, readRequestsCount=10, filteredReadRequestsCount=0, writeRequestsCount=2, rootIndexSizeKB=0, totalStaticIndexSizeKB=0, totalStaticBloomSizeKB=0, totalCompactingKVs=0, currentCompactedKVs=0, compactionProgressPct=NaN, coprocessors=[]
+    hadoop03:16020 1792002150722
+        requestsPerSecond=0.0, numberOfOnlineRegions=2, usedHeapMB=32, maxHeapMB=371, numberOfStores=4, numberOfStorefiles=0, storefileUncompressedSizeMB=0, storefileSizeMB=0, memstoreSizeMB=2, storefileIndexSizeKB=0, readRequestsCount=41, filteredReadRequestsCount=1, writeRequestsCount=25, rootIndexSizeKB=0, totalStaticIndexSizeKB=0, totalStaticBloomSizeKB=0, totalCompactingKVs=0, currentCompactedKVs=0, compactionProgressPct=NaN, coprocessors=[MultiRowMutationEndpoint]
+0 dead servers
+Aggregate load: 0, regions: 3
+Took 0.8004 seconds
+hbase:002:0> exit
+ERROR SystemExit: exit
+2026-10-15 02:25:51,546 WARN  [main] util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+退出码：1

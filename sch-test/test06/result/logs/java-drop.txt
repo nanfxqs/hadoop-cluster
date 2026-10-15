@@ -1,0 +1,37 @@
+采集时间：2026-10-15T10:25:34.098554
+节点：hadoop01 (192.168.122.11)
+$ export HBASE_HOME=$HOME/opt/hbase-2.4.11; CP="$($HBASE_HOME/bin/hbase classpath)"; cd ~; java -cp ".:$CP" HBaseLab drop
+
+tableExists=false
+2026-10-15 02:25:28,794 WARN  [main] util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2026-10-15 02:25:29,189 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:zookeeper.version=3.5.7-f0fdd52973d373ffd9c86b81d99842dc2c7f660e, built on 02/10/2020 11:30 GMT
+2026-10-15 02:25:29,190 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:host.name=hadoop01
+2026-10-15 02:25:29,190 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:java.version=1.8.0_212
+2026-10-15 02:25:29,190 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:java.vendor=Oracle Corporation
+2026-10-15 02:25:29,190 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:java.home=/usr/local/jdk1.8.0_212/jre
+2026-10-15 02:25:29,190 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:java.class.path=.:/home/hadoop/opt/hbase-2.4.11/conf:/usr/local/jdk1.8.0_212/lib/tools.jar:/home/hadoop/opt/hbase-2.4.11:/home/hadoop/opt/hbase-2.4.11/lib/shaded-clients/hbase-shaded-client-2.4.11.jar:/home/hadoop/opt/hbase-2.4.11/lib/client-facing-thirdparty/audience-annotations-0.5.0.jar:/home/hadoop/opt/hbase-2.4.11/lib/client-facing-thirdparty/commons-logging-1.2.jar:/home/hadoop/opt/hbase-2.4.11/lib/client-facing-thirdparty/htrace-core4-4.2.0-incubating.jar:/home/hadoop/opt/hbase-2.4.11/lib/client-facing-thirdparty/reload4j-1.2.19.jar:/home/hadoop/opt/hbase-2.4.11/lib/client-facing-thirdparty/slf4j-api-1.7.33.jar:/home/hadoop/opt/hbase-2.4.11/lib/client-facing-thirdparty/slf4j-reload4j-1.7.33.jar
+2026-10-15 02:25:29,190 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:java.library.path=/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+2026-10-15 02:25:29,190 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:java.io.tmpdir=/tmp
+2026-10-15 02:25:29,190 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:java.compiler=<NA>
+2026-10-15 02:25:29,190 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:os.name=Linux
+2026-10-15 02:25:29,190 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:os.arch=amd64
+2026-10-15 02:25:29,190 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:os.version=4.18.0-553.el8_10.x86_64
+2026-10-15 02:25:29,190 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:user.name=hadoop
+2026-10-15 02:25:29,190 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:user.home=/home/hadoop
+2026-10-15 02:25:29,190 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:user.dir=/home/hadoop
+2026-10-15 02:25:29,190 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:os.memory.free=41MB
+2026-10-15 02:25:29,190 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:os.memory.max=816MB
+2026-10-15 02:25:29,190 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Client environment:os.memory.total=56MB
+2026-10-15 02:25:29,193 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ZooKeeper: Initiating client connection, connectString=hadoop01:2181,hadoop02:2181,hadoop03:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/622102966@18d54adc
+2026-10-15 02:25:29,203 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] common.X509Util: Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2026-10-15 02:25:29,208 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 4194304 Bytes
+2026-10-15 02:25:29,226 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=
+2026-10-15 02:25:29,239 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f-SendThread(hadoop03:2181)] zookeeper.ClientCnxn: Opening socket connection to server hadoop03/192.168.122.13:2181. Will not attempt to authenticate using SASL (unknown error)
+2026-10-15 02:25:29,254 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f-SendThread(hadoop03:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /192.168.122.11:32930, server: hadoop03/192.168.122.13:2181
+2026-10-15 02:25:29,266 INFO  [ReadOnlyZKClient-hadoop01:2181,hadoop02:2181,hadoop03:2181@0x17d0685f-SendThread(hadoop03:2181)] zookeeper.ClientCnxn: Session establishment complete on server hadoop03/192.168.122.13:2181, sessionid = 0x3000001aa370016, negotiated timeout = 40000
+2026-10-15 02:25:30,226 INFO  [main] client.HBaseAdmin: Started disable of test06_api
+2026-10-15 02:25:31,508 INFO  [main] client.HBaseAdmin: Operation: DISABLE, Table Name: default:test06_api, procId: 15 completed
+2026-10-15 02:25:32,777 INFO  [main] client.HBaseAdmin: Operation: DELETE, Table Name: default:test06_api, procId: 18 completed
+2026-10-15 02:25:32,787 INFO  [main] client.ConnectionImplementation: Closing master protocol: MasterService
+
+退出码：0
